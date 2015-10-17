@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include/taglibs.jsp" %>
 <html>
 <head>
-    <title>会员管理</title>
+    <title>修改会员信息</title>
     <meta name="decorator" content="default"/>
     <%@include file="/WEB-INF/views/include/dialog.jsp" %>
     <script type="text/javascript">
@@ -30,13 +30,9 @@
     </script>
 </head>
 <body>
-<ul class="nav nav-tabs">
-    <li><a href="${ctx}${baseMapper}">会员列表</a></li>
-    <li class="active"><a href="#">新会员注册</a></li>
-</ul>
-<br/>
-
-<form id="inputForm" action="${ctx}${baseMapper}/update" method="post" class="form-horizontal">
+	<ul class="nav nav-tabs"><li></li>
+	</ul>
+<form id="inputForm" action="${ctx}${baseMapper}/modify" method="post" class="form-horizontal">
     <input type="hidden" name="id" value="${user.id}"/>
     <tags:message content="${message}"/>
     <div class="control-group">
@@ -44,7 +40,7 @@
         <div class="controls">
             <input type="text" maxlength="50" class="required" id="loginName"
                    name="loginName" value="${user.loginName}"
-                   ${empty user.loginName ?'':'readonly="readonly"' } placeholder="请填写数字或者字母" />
+                    readonly="readonly" placeholder="请填写数字或者字母" />
         </div>
     </div>
     <div class="control-group">
@@ -52,7 +48,7 @@
 
         <div class="controls">
             <input type="text" maxlength="50" class="required" id="name" name="name"
-                   value="${user.name}" ${empty user.loginName ?'':'readonly="readonly"' } placeholder="请填写中文">
+                   value="${user.name}" readonly="readonly" placeholder="请填写中文">
         </div>
     </div>
     <div class="control-group">
@@ -76,7 +72,7 @@
         <a class="btn btn-info" onclick="upload()">上传头像</a>
         </label>
         <div class="controls">
-        <input type="hidden" id="headImg" name="headImg"/>
+        <input type="hidden" id="headImg" name="headImg" value="${user.headImg}"/>
         <img style="width: 200px;height: 100px;" title="头像"  alt=""
         onclick="" id="headimg" src="${ctx }${user.headImg}" />
         </div>
@@ -96,22 +92,10 @@
 			$.jBox.close("uploadimg");
 		}
 	</script>
-	
-	<div class="control-group">
-        <label class="control-label">推荐人:</label>
-        <div class="controls">
-        	<select name="recommend">
-        		<option value="">&nbsp;&nbsp;&nbsp;&nbsp; 无 </option>
-        		<c:forEach items="${allVipUser }" var="vipUser">
-        		<option value="${vipUser.id }">${vipUser.name }</option>
-        		</c:forEach>
-        	</select>
-        </div>
-    </div>
 
     <div class="form-actions">
         <shiro:hasPermission name="user:edit">
-        <input id="btnSubmit" class="btn btn-primary" type="submit"value="注  册"/>&nbsp;
+        <input id="btnSubmit" class="btn btn-primary" type="submit"value="保存修改"/>&nbsp;
         </shiro:hasPermission>
     </div>
 </form>

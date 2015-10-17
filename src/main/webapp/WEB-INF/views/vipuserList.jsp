@@ -33,7 +33,7 @@
         <thead>
         <tr>
             <th>姓名</th>
-            <th>电话号码</th>
+            <th>手机号码</th>
             <th>余额</th>
             <th>操作</th>
         </tr>
@@ -41,7 +41,7 @@
 		<tbody>
         <c:forEach items="${page.content}" var="user" varStatus="status">
             <tr>
-                <td>${user.name}&nbsp;</td>
+                <td><a href="${ctx}${baseMapper}/modify/${user.id}">${user.name}&nbsp;</a></td>
                 <td>${user.mobilPhone}&nbsp;</td>
                 <td id="m${user.id }">￥${user.balance}&nbsp;元</td>
                 <td>
@@ -52,7 +52,6 @@
                 </c:if><c:if test="${user.status eq 0 }">
                 <a class="btn btn-danger" href="${ctx}/vipuser/freezeUser?id=${user.id}&type=1" >冻结</a></c:if></span>
                 <a class="btn btn-primary" href="${ctx}${baseMapper}/detail?id=${user.id}">详情</a>
-                
                 </td>
             </tr>
         </c:forEach>

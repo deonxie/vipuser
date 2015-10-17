@@ -145,4 +145,17 @@ public class VipUserController extends GenericController {
 		}
 		return "redirect:/vipuser";
 	}
+	
+	@RequiresPermissions("user:edit")
+	@RequestMapping(value = "modify", method = RequestMethod.POST)
+	public String modify(@ModelAttribute("user") User user){
+		userService.modify(user);
+		return "redirect:/vipuser";
+	}
+	@RequiresPermissions("user:edit")
+	@RequestMapping(value = "modify/{id}", method = RequestMethod.GET)
+	public String modify(@PathVariable ("id")long id,Model model){
+		model.addAttribute("user", userService.get(id));
+		return "vipuserUpdate";
+	}
 }

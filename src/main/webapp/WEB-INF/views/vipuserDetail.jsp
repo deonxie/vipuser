@@ -57,7 +57,7 @@
 				<td width="10%">姓 &nbsp;&nbsp; &nbsp;&nbsp; 名：</td>
 				<td width="70%">${user.name }</td>
 			</tr>
-			<tr><td>电话号码：</td><td>${user.mobilPhone }</td></tr>
+			<tr><td>手机号码：</td><td>${user.mobilPhone }</td></tr>
 			<tr><td>账号余额：</td><td>￥${user.balance }元</td></tr>
 			<tr><td>我的下属：</td><td>${fn:length(bonusRecords) }人</td></tr>
 			<tr><td></td><td></td></tr>

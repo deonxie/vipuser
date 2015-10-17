@@ -101,4 +101,12 @@ public class UserService extends GenericService<User, UserDao> {
 		userDao.updateUserStatus(id,status);
 	}
 	
+	@Transactional(readOnly=false)
+	public String modify(User user) {
+		user.setTypeStatus(User.TYPE_VIPUSER);
+		entryptPassword(user);
+		userDao.save(user);
+		return "修改成功";
+	}
+	
 }
