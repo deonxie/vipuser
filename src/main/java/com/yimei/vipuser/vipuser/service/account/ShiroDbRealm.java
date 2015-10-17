@@ -32,7 +32,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-		User user = userService.findUserByLoginName(token.getUsername());
+		User user = userService.findUserByLoginName(token.getUsername(),User.freeze_status);
 
 		if (user != null) {
 			byte[] salt = Encodes.decodeHex(user.getSalt());
@@ -49,7 +49,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
-        User user = userService.findUserByLoginName(shiroUser.loginName);
+        User user = userService.findUserByLoginName(shiroUser.loginName,User.freeze_status);
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         for (Role role : user.getRoleList()) {

@@ -50,13 +50,14 @@
 			<c:if test="${needLogout}">
 			<a href="${ctx}/logout" title="退出登录" class="btn btn-defalut">退出</a>
 			</c:if>
-			</th><th width="20%" rowspan="4" id="thHeadImg" style="text-align: center;">
+			</th><th width="20%" rowspan="5" id="thHeadImg" style="text-align: center;">
 				<img id="headImg" src="${ctx }${user.headImg }" style="display: none;">
 			</th></tr>
 			<tr>
 				<td width="10%">姓 &nbsp;&nbsp; &nbsp;&nbsp; 名：</td>
 				<td width="70%">${user.name }</td>
 			</tr>
+			<tr><td>电话号码：</td><td>${user.mobilPhone }</td></tr>
 			<tr><td>账号余额：</td><td>￥${user.balance }元</td></tr>
 			<tr><td>我的下属：</td><td>${fn:length(bonusRecords) }人</td></tr>
 			<tr><td></td><td></td></tr>

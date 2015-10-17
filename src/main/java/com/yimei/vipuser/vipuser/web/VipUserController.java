@@ -129,4 +129,20 @@ public class VipUserController extends GenericController {
 	     }
 	     return Boolean.FALSE.toString();
 	}
+	
+	@RequiresPermissions("user:edit")
+	@RequestMapping(value = "freezeUser")
+	public String freezeUser(@RequestParam("id")long id,@RequestParam("type")int type){
+		switch (type) {
+		case User.freezed_status:
+			userService.updateUserStatus(id,User.freezed_status);
+			break;
+		case User.freeze_status:
+			userService.updateUserStatus(id,User.freeze_status);
+			break;
+		default:
+			break;
+		}
+		return "redirect:/vipuser";
+	}
 }

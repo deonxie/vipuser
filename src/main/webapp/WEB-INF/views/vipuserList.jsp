@@ -33,6 +33,7 @@
         <thead>
         <tr>
             <th>姓名</th>
+            <th>电话号码</th>
             <th>余额</th>
             <th>操作</th>
         </tr>
@@ -41,10 +42,15 @@
         <c:forEach items="${page.content}" var="user" varStatus="status">
             <tr>
                 <td>${user.name}&nbsp;</td>
+                <td>${user.mobilPhone}&nbsp;</td>
                 <td id="m${user.id }">￥${user.balance}&nbsp;元</td>
                 <td>
                 <a class="btn btn-primary" onclick="resetPwd('${user.name}','${user.id}')">重置密码</a>
                 <a class="btn btn-primary" onclick="takeoff('${user.name}','${user.id}','${user.balance}')">取现</a>
+                <span id="freeze${user.id}"><c:if test="${user.status eq 1 }">
+                <a class="btn btn-warning" href="${ctx}/vipuser/freezeUser?id=${user.id}&type=0" >解冻</a>
+                </c:if><c:if test="${user.status eq 0 }">
+                <a class="btn btn-danger" href="${ctx}/vipuser/freezeUser?id=${user.id}&type=1" >冻结</a></c:if></span>
                 <a class="btn btn-primary" href="${ctx}${baseMapper}/detail?id=${user.id}">详情</a>
                 
                 </td>
@@ -113,7 +119,20 @@
 
     	$.jBox(html, { title: name+" : 现有余额 ￥"+yue+"元", submit: submit });
     }
-   
+    
+    
+   function freezeUser(userid,tp){
+	   $.ajax({url:'${ctx}/vipuser/freezeUser',dataType:'json',
+		   data:{'id':userid,'type':tp},type:'post',async:true,success:function(data){
+			   if(data){
+					if(tp==1){alert($("#freeze"+id).html());
+			    		$("#freeze"+id).html('<a class="btn btn-warning" onclick="freezeUser(\'${user.id}\',0)">解冻</a>');
+					}else
+						$("#freeze"+id).html('<a class="btn btn-warning" onclick="freezeUser(\'${user.id}\',1)">冻结</a>');
+			   }else
+	    		$.jBox.tip('操作成功',"info");
+	    	}});
+   }
     </script>
 </body>
 </html>

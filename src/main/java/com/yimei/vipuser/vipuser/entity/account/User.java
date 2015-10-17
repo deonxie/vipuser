@@ -27,13 +27,19 @@ public class User extends IdEntity {
     private Date registerDate;
     private double balance;
     private String headImg;
+    private String mobilPhone;
     private int typeStatus;
+    private int status;
     private List<Role> roleList = Lists.newArrayList(); // 有序的关联对象集合
     /**后台管理类型用户*/
     public final static int TYPE_MANGAER = 9;
     /**vip会员类型用户*/
     public final static int TYPE_VIPUSER = 5;
-
+    /**解冻状态**/
+    public final static int freeze_status = 0;
+    /**冻结状态**/
+    public final static int freezed_status = 1;
+    
     @Column(unique = true, nullable = false)
     public String getLoginName() {
         return loginName;
@@ -154,6 +160,35 @@ public class User extends IdEntity {
 	 */
 	public void setHeadImg(String headImg) {
 		this.headImg = headImg;
+	}
+	
+	/**
+	 * @return the mobilPhone
+	 */
+	public String getMobilPhone() {
+		return mobilPhone;
+	}
+
+	/**
+	 * @param mobilPhone the mobilPhone to set
+	 */
+	public void setMobilPhone(String mobilPhone) {
+		this.mobilPhone = mobilPhone;
+	}
+
+	/**
+	 * @return the status
+	 */
+	@Column(columnDefinition="integer default 0")
+	public int getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	@Override

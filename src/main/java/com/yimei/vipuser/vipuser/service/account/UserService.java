@@ -31,6 +31,9 @@ public class UserService extends GenericService<User, UserDao> {
     @Autowired
     private UserDao userDao;
 
+    public User findUserByLoginName(String loginName,int status) {
+        return userDao.findByLoginName(loginName,status);
+    }
     public User findUserByLoginName(String loginName) {
         return userDao.findByLoginName(loginName);
     }
@@ -92,6 +95,10 @@ public class UserService extends GenericService<User, UserDao> {
 	public void resetPwd(User user) {
 		entryptPassword(user);
 		save(user);
+	}
+
+	public void updateUserStatus(long id, int status) {
+		userDao.updateUserStatus(id,status);
 	}
 	
 }

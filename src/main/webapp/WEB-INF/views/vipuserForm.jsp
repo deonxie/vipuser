@@ -60,6 +60,14 @@
         </div>
     </div>
     <div class="control-group">
+        <label class="control-label">电话号码:</label>
+
+        <div class="controls">
+            <input type="text" maxlength="50" class="required" id="mobilPhone" name="mobilPhone"
+                   value="${user.mobilPhone}" placeholder="请填电话号码"/>
+        </div>
+    </div>
+    <div class="control-group">
         <label class="control-label">密码:</label>
 
         <div class="controls">
