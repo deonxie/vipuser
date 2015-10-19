@@ -41,9 +41,15 @@
     }
     </script>
 </head>
-<body>
-<div class="panel panel-info" style="padding: 15px;">
-	<div class="panel-heading" style="padding: 15px;">
+<body >
+<div style="padding: 20px;">
+<ul class="nav nav-tabs">
+		<li><a href="${ctx }/bulletin/detail"> 公 告 </a></li>
+		<li class="active"><a href="${ctx}/index">个人信息</a></li>
+	</ul>
+	
+<div class="panel panel-info" >
+	<div class="panel-heading" style="margin-top: 20px;">
 		<table class="table table-condensed" cellPadding="0" cellSpacing="0">
 			<tr align="right"><th colspan="4" style="text-align: right;" width="80%">
 			<button class="btn btn-defalut" onclick="updatePwd()">修改密码</button>
@@ -115,6 +121,7 @@
 		</table>
 		</div>
 	</div>
+</div>
 </div>
 </body>
 </html>

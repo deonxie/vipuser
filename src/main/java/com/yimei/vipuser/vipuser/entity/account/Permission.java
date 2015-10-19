@@ -16,7 +16,9 @@ public enum Permission {
 	USER_VIEW("user:view", "查看用户", "系统管理"),
 	USER_EDIT("user:edit", "操作用户","系统管理"),
 	ROLE_VIEW("role:view", "查看角色", "系统管理"),
-	ROLE_EDIT("role:edit", "操作角色", "系统管理");
+	ROLE_EDIT("role:edit", "操作角色", "系统管理"),
+	NOTICE_EDIT("notice:edit", "发布公告", "系统管理"),
+	NOTICE_VIEW("notice:view", "查看公告", "系统管理");
 
 	public String value;
 	public String displayName;

@@ -34,7 +34,8 @@
         <div id="collapse1" class="accordion-body collapse in">
             <div class="accordion-inner">
                 <ul class="nav nav-list">
-                    <li><a href="${ctx}/vipuser"" target="mainFrame"><i class="icon-heart icon-white"></i>&nbsp;会员列表</a></li>
+                    <li><a href="${ctx}/vipuser" target="mainFrame"><i class="icon-heart icon-white"></i>&nbsp;会员列表</a></li>
+                    <li><a href="${ctx}/bulletin" target="mainFrame"><i class="icon-heart icon-white"></i>&nbsp;公告列表</a></li>
                 </ul>
             </div>
         </div>
