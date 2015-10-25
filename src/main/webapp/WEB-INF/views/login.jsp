@@ -85,7 +85,8 @@
                 <label class="checkbox inline">
                     <input type="checkbox" id="rememberMe" name="rememberMe"> <span style="color:#08c;">记住我</span>
                 </label>
-                <input class="btn btn-primary" type="submit" value="登 录"/>
+                <shiro:notAuthenticated><input class="btn btn-primary" type="submit" value="登 录"/></shiro:notAuthenticated>
+                <shiro:authenticated><a class="btn btn-primary" href="${ctx }/index" >登 录</a></shiro:authenticated>
             </div>
         </form>
     </div>

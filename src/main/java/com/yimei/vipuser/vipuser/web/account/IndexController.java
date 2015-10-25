@@ -24,12 +24,27 @@ public class IndexController {
  	    	if(obj !=null && obj instanceof ShiroUser){
  	    		ShiroUser shiroUser = (ShiroUser)obj;
  	    		if(shiroUser.typeStatus == User.TYPE_VIPUSER)
- 	    			return "redirect:/vipuser/detail?id="+shiroUser.id;
+ 	    			return "redirect:/bulletin/detail";
  	    	}
  	    }
         return "/account/index";
     }
 
+    @RequestMapping("/vip")
+    public String vip() {
+        // 首页展示可以进行一些个性化的定制
+    	Subject subject = SecurityUtils.getSubject();
+ 	    if(subject !=null){
+ 	    	Object obj = subject.getPrincipal();
+ 	    	if(obj !=null && obj instanceof ShiroUser){
+ 	    		ShiroUser shiroUser = (ShiroUser)obj;
+ 	    		if(shiroUser.typeStatus == User.TYPE_VIPUSER)
+ 	    			return "redirect:/vipuser/detail?id="+shiroUser.id;
+ 	    	}
+ 	    }
+        return "/account/index";
+    }
+    
     @RequestMapping("/menuList/{firstLevel}")
     public String menuList(@PathVariable("firstLevel") String firstLevel) {
         return "/menu/" + firstLevel;

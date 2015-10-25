@@ -54,10 +54,10 @@
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
         <thead>
         <tr>
-            <th>标题</th>
-            <th>内容</th>
-            <th>发布时间</th>
-            <th>操作</th>
+            <th width="20%">标题</th>
+            <th width="50%">内容</th>
+            <th width="15%">发布时间</th>
+            <th width="15%">操作</th>
         </tr>
         </thead>
 		<tbody>
@@ -65,7 +65,7 @@
             <tr>
                 <td>${bull.title}&nbsp;</td>
                 <td><pre id="td${bull.id }">${bull.content}</pre></td>
-                <td><fmt:formatDate value="${bull.createDate}" pattern="yyyy-MM-dd"/> &nbsp;</td>
+                <td><fmt:formatDate value="${bull.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/> &nbsp;</td>
                 <td>
                 <a class="btn btn-danger" href="${ctx}${baseMapper}/delete/${bull.id}">删除</a>
                 <button class="btn btn-primary" onclick="addBulletin('${bull.id}','${bull.title}')" >修改</button>

@@ -70,7 +70,7 @@
 		</table>
 	</div>
 	<div class="panel-body">
-		<div class="well well-info">一级下属
+		<div class="well well-info">一级下属 ${fn:length(newUsers.fristLevel) } 人
 		<table class="table table-striped table-bordered table-condensed" style="max-height: 400px;">
 			<tr><th>姓 名</th><th>加入时间</th><th>贡献值</th></tr>
 			<c:forEach items="${newUsers.fristLevel }" var="frist">
@@ -80,7 +80,7 @@
 			</c:forEach>
 		</table>
 		</div>
-		<div class="well">二级下属
+		<div class="well">二级下属 ${fn:length(newUsers.secondLevel) } 人
 		<table class="table table-striped table-bordered table-condensed">
 			<tr><th>姓 名</th><th>推荐人</th><th>加入时间</th><th>贡献值</th></tr>
 			<c:forEach items="${newUsers.secondLevel }" var="second">
@@ -90,7 +90,7 @@
 			</c:forEach>
 		</table>
 		</div>
-		<div class="well">三级下属
+		<div class="well">三级下属 ${fn:length(newUsers.threeLevel) } 人
 		<table class="table table-striped table-bordered table-condensed">
 			<tr><th>姓  名</th><th>推荐人</th><th>加入时间</th><th>贡献值</th></tr>
 			<c:forEach items="${newUsers.threeLevel }" var="three">

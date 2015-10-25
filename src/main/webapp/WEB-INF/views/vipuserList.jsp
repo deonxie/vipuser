@@ -23,7 +23,7 @@
 		<input id="orderDir" name="orderDir" type="hidden" value="${pageRequest.orderDir}"/>
 		<input id="orderBy" name="orderBy" type="hidden" value="${pageRequest.orderBy}"/>
 		<div>
-			<%-- <label>登录名：</label><input type="text" name="search_EQ_loginName" class="input-small" value="${param.search_EQ_loginName}"> --%>
+			<label>会员：${pageRequest.totalCount } 人</label>
             <label>姓&nbsp;&nbsp;&nbsp;名：</label><input type="text" name="search_LIKE_name" class="input-small" value="${param.search_LIKE_name}">
             &nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
 		</div>

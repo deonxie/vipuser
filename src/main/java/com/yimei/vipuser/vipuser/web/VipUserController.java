@@ -53,8 +53,8 @@ public class VipUserController extends GenericController {
 	 @RequiresPermissions("user:view")
 	 @RequestMapping(value = "")
 	 public String list(PageRequest pageRequest, Model model,ServletRequest request) {
-		 Map<String,Object> param = Servlets.getParametersStartingWith(request, "search_");
-		 param.put("EQ_typeStatus", User.TYPE_VIPUSER);
+		Map<String,Object> param = Servlets.getParametersStartingWith(request, "search_");
+		param.put("EQ_typeStatus", User.TYPE_VIPUSER);
         Page<User> users = userService.search(param, pageRequest);
         model.addAttribute("page", users);
         model.addAttribute("pageRequest", pageRequest);

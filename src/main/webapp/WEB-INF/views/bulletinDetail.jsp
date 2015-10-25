@@ -16,7 +16,7 @@
 <div style="padding: 20px;">
 	<ul class="nav nav-tabs">
 		<li class="active"><a> 公 告 </a></li>
-		<li><a href="${ctx}/index">个人信息</a></li>
+		<li><a href="${ctx}/vip">个人信息</a></li>
 	</ul>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
         <thead>
@@ -31,7 +31,7 @@
             <tr>
                 <td>${bull.title}&nbsp;</td>
                 <td><pre id="td${bull.id }">${bull.content}</pre></td>
-                <td><fmt:formatDate value="${bull.createDate}" pattern="yyyy-MM-dd"/> &nbsp;</td>
+                <td><fmt:formatDate value="${bull.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/> &nbsp;</td>
             </tr>
         </c:forEach>
 		</tbody>
